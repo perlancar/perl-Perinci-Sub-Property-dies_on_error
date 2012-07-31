@@ -43,9 +43,11 @@ declare_property(
             $self->select_section('before_return_res');
             $self->push_lines('if ($res->[0] !~ /'.$v->{success_statuses}.'/) {');
             $self->indent;
-            $self->push_lines(
-                'my @c = caller(1);',
-                'die "Call $c[3]() returns non-success status $res->[0]: $res->[1]"');
+            $self->push_lines(join(
+                "",
+                'die "Call to ',
+                ($self->{_args}{sub_name} ? "$self->{_args}{sub_name}()" : "function"),
+                ' returned non-success status $res->[0]: $res->[1]"'));
             $self->unindent;
             $self->push_lines('}');
         },
