@@ -23,6 +23,7 @@ declare_property(
             v       => 2,
             prio    => 99, # very low, need to be the last to do stuff to $res
             convert => 1,
+            tags    => [qw/die/], # this property can cause function to die
         },
         handler => sub {
             my ($self, %args) = @_;
