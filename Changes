@@ -1,5 +1,11 @@
 Revision history for Perinci-Sub-Property-dies_on_error
 
+0.03     2012-08-09 (SHARYANTO)
+
+         No functional changes. Correct casing in name:
+         Perinci::Sub::{p,P}roperty::
+
+
 0.02     2012-07-31 (SHARYANTO)
 
          No functional changes. Show function name in die message.
