@@ -5,7 +5,7 @@ use strict;
 use warnings;
 #use Log::Any '$log';
 
-use Perinci::Util qw(declare_property);
+use Perinci::Sub::PropertyUtil qw(declare_property);
 
 # VERSION
 
