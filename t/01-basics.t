@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use Perinci::Sub::Wrapper qw(wrap_sub);
-use Test::More 0.96;
+use Test::More 0.98;
 use Test::Perinci::Sub::Wrapper qw(test_wrap);
 
 my ($sub, $meta);

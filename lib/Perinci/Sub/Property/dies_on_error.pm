@@ -1,6 +1,6 @@
 package Perinci::Sub::Property::dies_on_error;
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
 #use Log::Any '$log';
