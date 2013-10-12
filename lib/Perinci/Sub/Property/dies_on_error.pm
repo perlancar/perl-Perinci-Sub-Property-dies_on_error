@@ -68,7 +68,7 @@ Without dies_on_error:
  # on non-successful call
  f(...); # [404, "Not found"]
 
-With dies_on_error=>1:
+With C<< dies_on_error => 1 >>:
 
  # on successful call
  f(...); # [200, "OK"]
@@ -76,12 +76,15 @@ With dies_on_error=>1:
  # on non-successful call
  f(...); # dies with message "Call f() failed with 404 status: Not found"
 
+To customize what statuses are considered error: C<< dies_on_error => {
+success_statuses => '^2..$' } >>.
+
 
 =head1 DESCRIPTION
 
 This property sets so that function dies when result status is a non-successful
 one (it even dies under wrapping option trap=>1). Successful statuses by default
-include 2xx and 304.
+include 2xx and 304 (C<< '^(2..|304)$' >>).
 
 
 =head1 SEE ALSO
