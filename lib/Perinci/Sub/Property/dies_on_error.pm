@@ -42,13 +42,13 @@ declare_property(
             }
 
             $self->select_section('before_return_res');
-            $self->push_lines('if ($w_res->[0] !~ /'.$v->{success_statuses}.'/) {');
+            $self->push_lines('if ($_w_res->[0] !~ /'.$v->{success_statuses}.'/) {');
             $self->indent;
             $self->push_lines(join(
                 "",
                 'die "Call to ',
                 ($self->{_args}{sub_name} ? "$self->{_args}{sub_name}()" : "function"),
-                ' returned non-success status $w_res->[0]: $w_res->[1]"'));
+                ' returned non-success status $_w_res->[0]: $_w_res->[1]"'));
             $self->unindent;
             $self->push_lines('}');
         },
