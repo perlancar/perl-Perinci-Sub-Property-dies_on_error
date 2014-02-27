@@ -31,6 +31,10 @@ declare_property(
             my $meta = $args{meta};
 
             return unless $v;
+
+            die "Cannot use dies_on_error if result_naked is 1"
+                if $self->{_meta}{result_naked};
+
             $v = {} if ref($v) ne 'HASH';
 
             $v->{success_statuses} //= qr/^(2..|304)$/;
@@ -41,7 +45,7 @@ declare_property(
                 }
             }
 
-            $self->select_section('before_return_res');
+            $self->select_section('after_eval');
             $self->push_lines('if ($_w_res->[0] !~ /'.$v->{success_statuses}.'/) {');
             $self->indent;
             $self->push_lines(join(
