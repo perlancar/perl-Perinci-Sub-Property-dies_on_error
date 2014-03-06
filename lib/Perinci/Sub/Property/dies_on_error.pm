@@ -21,9 +21,8 @@ declare_property(
     wrapper => {
         meta => {
             v       => 2,
-            prio    => 99, # very low, need to be the last to do stuff to $res
+            prio    => 99, # very low, the last to do stuff to $_w_res
             convert => 1,
-            tags    => [qw/die/], # this property can cause function to die
         },
         handler => sub {
             my ($self, %args) = @_;
@@ -46,13 +45,16 @@ declare_property(
             }
 
             $self->select_section('after_eval');
+
+            $self->push_lines('if ($_w_eval_err) { die $_w_eval_err }');
+
             $self->push_lines('if ($_w_res->[0] !~ /'.$v->{success_statuses}.'/) {');
             $self->indent;
             $self->push_lines(join(
                 "",
-                'die "Call to ',
+                "die 'Call to ",
                 ($self->{_args}{sub_name} ? "$self->{_args}{sub_name}()" : "function"),
-                ' returned non-success status $_w_res->[0]: $_w_res->[1]"'));
+                q[ returned non-success status '. "$_w_res->[0]: $_w_res->[1]";]));
             $self->unindent;
             $self->push_lines('}');
         },
