@@ -65,13 +65,11 @@ test_wrap(
 
 test_wrap(
     name        =>
-        'with result_naked=1, die message still shows status+message #1',
+        'cannot be used with result_naked=1',
     wrap_args   => {sub => $sub, meta => $meta, debug=>1,
                     convert=>{result_naked=>1, dies_on_error=>1}},
-    wrap_status => 200,
-    call_argsr  => [s=>411, m=>'foo'],
-    call_dies   => 1,
-    call_die_message => qr/411.+foo/,
+    wrap_dies   => 1,
 );
 
+DONE_TESTING:
 done_testing();
