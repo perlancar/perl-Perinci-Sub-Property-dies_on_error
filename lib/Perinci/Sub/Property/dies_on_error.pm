@@ -1,13 +1,14 @@
 package Perinci::Sub::Property::dies_on_error;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use strict;
 use warnings;
 #use Log::Any '$log';
 
 use Perinci::Sub::PropertyUtil qw(declare_property);
-
-# VERSION
 
 declare_property(
     name => 'dies_on_error',
