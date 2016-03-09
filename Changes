@@ -1,5 +1,12 @@
 Revision history for Perinci-Sub-Property-dies_on_error
 
+0.06     2014-03-09 (PERLANCAR)
+
+         - No functional changes.
+
+         - Re-release/re-upload (accidentally deleted from CPAN).
+
+
 0.05     2014-03-07 (SHARYANTO)
 
          - Adjust to Perinci::Sub::Wrapper 0.51.
